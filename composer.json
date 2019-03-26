@@ -1,0 +1,23 @@
+{
+    "name": "eva/kafka-els",
+    "description": "a package for data input to kafka and output from elasticsearch",
+    "keywords": ["kafka", "elasticsearch"],
+    "license": "MIT",
+   	"type": "library",
+    "authors": [
+        {
+            "name": "sunshine",
+            "email": "constmail@126.com"
+        }
+    ],
+    "require": {
+    	"php": ">=7.0"
+    },
+    "autoload": {
+	    "psr-4": {
+	      "evahsiao\\kafka-els\\": "src"
+	    }
+	},
+    "prefer-stable": true,
+  	"minimum-stability": "dev"
+}
