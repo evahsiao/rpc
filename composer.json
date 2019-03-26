@@ -1,5 +1,5 @@
 {
-    "name": "eva/kafka-els",
+    "name": "evahsiao/kafka-els",
     "description": "a package for data input to kafka and output from elasticsearch",
     "keywords": ["kafka", "elasticsearch"],
     "license": "MIT",
