@@ -4,8 +4,8 @@
  * @Author: xml
  * @Date:   2019-03-30 16:03:31
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-09 13:41:21
- * Desc: RPC客户端
+ * @Last Modified time: 2019-04-09 14:13:30
+ * Desc: RPC同步客户端
  */
 
 namespace src\Rpc\Client;
@@ -14,35 +14,28 @@ use Swoole;
 
 class RpcClient
 {
+	public static $instance;
 	private $client;
-	public function __construct()
+	private function __construct()
 	{
-		$this->client = new Coroutine\Client(SWOOLE_SOCK_TCP);
-		$this->client->set(array(
-			'open_length_check' => 1,
-			'package_length_type' => 'N',
-			'package_lenght_offset' => 0, //包长度计算起始值
-			'package_body_offset' => 4, //从第几个字节开始计算长度
-			'package_max_length' => 2000000, //协议最大长度
-		));
-		if (!$this->client->connect('127.0.0.1', 9501, 0.5)) 
-		{
-			exit("connect failed. Error: {$client->errorCode} \n");
+		$this->client = new swoole_client(SWOOLE_SOCK_TCP);
+		if ($this->client->connect('127.0.0.1', 9501, 0.5)) {
+			die("connect failed");
 		}
-		$this->receive();
+	}
+
+	public static function getInstance()
+	{
+		if (!self::$instance) {
+			self::$instance = new self();
+		}
+		return self::$instance;
 	}
 
 	public function send(array $data)
 	{
 		$this->client->send(json_encode($data));
-	}
-
-	public function receive()
-	{
-		$this->client->recv();//同步方式
-	}
-	public function close()
-	{
-		$this->client->close();
+		$res = $this->client->recv();//同步方式
+		return $res;
 	}
 }
