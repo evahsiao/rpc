@@ -4,13 +4,13 @@
  * @Author: xml
  * @Date:   2019-03-30 17:38:20
  * @Last Modified by:   xml
- * @Last Modified time: 2019-03-30 18:02:23
- * Desc:发送数据进行封箱操作
+ * @Last Modified time: 2019-04-09 13:56:27
+ * Desc:服务列表
  */
 
 namespace src\Rpc\RequestResponse;
 
-class RequestBox
+class ServerList
 {
 	public function __construct()
 	{
@@ -38,12 +38,13 @@ class RequestBox
 		//请求地址：127.0.0.1:9501/test/search
 		return [
 			'im' => [ //server
-				'test' => [
-					'name' => 'src\Rpc\TestUnit\RequestTest', //class
+				'test' => [ //alias
+					'space' => 'src\Rpc\TestUnit\ServerTest', //class
 					'functions' => [
-						'test' => 'search', //别名-》方法名
-						'call' => 'add',
+						'list',
+						'detail'
 					],
+				],
 			],
 			'mall' => [],
 		];
