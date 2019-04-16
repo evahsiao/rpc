@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-09 13:52:12
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-09 13:58:19
+ * @Last Modified time: 2019-04-09 20:45:39
  * Desc: 客户端发送请求前的方法
  */
 
@@ -16,5 +16,6 @@ public class ServerTest
 	{
 		$id = 1;
 		//请求服务端
+		
 	}
 }
