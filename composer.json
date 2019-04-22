@@ -1,7 +1,7 @@
 {
-    "name": "evahsiao/kafka-els",
-    "description": "a package for data input to kafka and output from elasticsearch",
-    "keywords": ["kafka", "elasticsearch"],
+    "name": "evahsiao/rpc",
+    "description": "a package for rpc server which accept request from client and transmit to the target server",
+    "keywords": ["rpc", "service container"],
     "license": "MIT",
    	"type": "library",
     "authors": [
@@ -15,7 +15,7 @@
     },
     "autoload": {
 	    "psr-4": {
-	      "evahsiao\\kafka-els\\": "src"
+	      "evahsiao\\rpc\\": "src"
 	    }
 	},
     "prefer-stable": true,
