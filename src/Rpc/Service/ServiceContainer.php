@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-18 17:20:48
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-18 17:41:57
+ * @Last Modified time: 2019-04-22 10:47:39
  * Desc:服务
  */
 
@@ -23,6 +23,11 @@ class ServiceContainer
 			self::$instance = new self();
 		}
 		return self::$instance;
+	}
+
+	public function registerService()
+	{
+		
 	}
 
 	public function handle($data)
