@@ -4,14 +4,15 @@
  * @Author: xml
  * @Date:   2019-04-18 16:48:56
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 16:30:16
+ * @Last Modified time: 2019-04-22 16:53:32
  * Desc:服务器
  */
 
 namespace src\Service;
 
 use Swoole;
-use src\Rpc\Service\ServiceContainer;
+use src\Service\ServiceContainer;
+use src\Service\ServiceHandler;
 
 class ServiceServer
 {
@@ -37,8 +38,9 @@ class ServiceServer
 
 	public function onReceive($server, $fd, $from_id, $data)
 	{
-		
-		echo "received: fd-$fd from_id:$from_id data:$data";
+		$server_handler = new ServiceHandler(server, $fd, $from_id, $data);
+		$server_handler->handle();
+		// echo "received: fd-$fd from_id:$from_id data:$data";
 		// $instance = ServiceContainer::getInstance();
 		// $content = $instance->handle($data);
 		// $server->send($fd, $content);
