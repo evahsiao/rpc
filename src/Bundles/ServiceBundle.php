@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-22 11:13:55
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 16:08:53
+ * @Last Modified time: 2019-04-22 16:14:19
  */
 
 namespace src\Bundles;
@@ -44,12 +44,15 @@ class ServiceBundle
 			// ];
 			//存redis
 			$redis = new Redis();
-			$redis->hmset("rpc_server_". $data['name'], [
-				'server' => $data['server'],
-				'port' => $data['port'],
-			]);
+			if (!$redis->exists("rpc_server_". $data['name'])) {
+				$redis->hmset("rpc_server_". $data['name'], [
+					'server' => $data['server'],
+					'port' => $data['port'],
+				]);
+			}
 			//具体path由service内部定义
 			$redis->sadd("rpc_service_". $data['name'], $data['service']);
+			
 		} else if ($this->data['type'] == self::RequestService)
 		{
 			//请求服务
