@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-18 16:48:56
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 11:15:34
+ * @Last Modified time: 2019-04-22 16:30:16
  * Desc:服务器
  */
 
@@ -37,6 +37,7 @@ class ServiceServer
 
 	public function onReceive($server, $fd, $from_id, $data)
 	{
+		
 		echo "received: fd-$fd from_id:$from_id data:$data";
 		// $instance = ServiceContainer::getInstance();
 		// $content = $instance->handle($data);

@@ -4,11 +4,13 @@
  * @Author: xml
  * @Date:   2019-03-30 15:58:06
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 11:15:24
+ * @Last Modified time: 2019-04-22 16:18:39
  * Desc: rpc服务器
  */
 
 namespace src\Server;
+
+use src\Bundles\ServiceBundle;
 
 class RpcServer
 {
@@ -32,7 +34,9 @@ class RpcServer
 	public function onReceive($server, $fd, $from_id, $data)
 	{
 		//接收到来自$fd的数据$data
-		$server->send($fd, "Server: ". $data);
+		$bundle = new ServiceBundle($server, $fd, $from_id, $data);
+		$res = $bundle->handle();
+		$server->send($fd, "Server: ". $res);
 	}
 
 	public function onClose($server, $fd)

@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-22 11:13:55
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 16:14:19
+ * @Last Modified time: 2019-04-22 16:43:52
  */
 
 namespace src\Bundles;
@@ -44,24 +44,27 @@ class ServiceBundle
 			// ];
 			//存redis
 			$redis = new Redis();
-			if (!$redis->exists("rpc_server_". $data['name'])) {
-				$redis->hmset("rpc_server_". $data['name'], [
-					'server' => $data['server'],
-					'port' => $data['port'],
+			if (!$redis->exists("rpc_server_". $this->data['name'])) {
+				$redis->hmset("rpc_server_". $this->data['name'], [
+					'server' => $this->data['server'],
+					'port' => $this->data['port'],
 				]);
 			}
+			if ($redis->exists("rpc_service_". $this->data['name']) && $redis->ismembers("rpc_service_". $this->data['name'], $this->data['service'])) {
+				return "failed";
+			}
 			//具体path由service内部定义
-			$redis->sadd("rpc_service_". $data['name'], $data['service']);
-			
-		} else if ($this->data['type'] == self::RequestService)
-		{
+			$redis->sadd("rpc_service_". $this->data['name'], $this->data['service']);
+			return "success";
+
+		} else if ($this->data['type'] == self::RequestService) {
 			//请求服务
 			// $data = [
 			// 	'type' => self::RequestService,
 			// 	'service' => 'im/detail',
 			// 	'data' => ['id' => 1],
 			// ];
-			$service = explode("/", $data['service']);
+			$service = explode("/", $this->data['service']);
 			$server = $service[0];
 			$service = $service[1];
 
@@ -77,7 +80,9 @@ class ServiceBundle
 					if ($client->connect($server_addr, $server_port, 0.5)) {
 						die("connect failed");
 					}
-					$client->send(json_encode($data['data']));
+					$data = $this->data['data'];
+					$data['service'] = $service;
+					$client->send(json_encode($data));
 					$res = $client->recv();
 					$client->close();
 					return $res;
