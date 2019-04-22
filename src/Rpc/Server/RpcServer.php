@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-03-30 15:58:06
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-16 15:00:07
+ * @Last Modified time: 2019-04-18 16:48:27
  * Desc: rpc服务器
  */
 
@@ -12,37 +12,31 @@ namespace src\Rpc\Server;
 
 class RpcServer
 {
-	public $host;
-	public $port;
-	public $protocol; //tcp,http,ws
-
-	public function setHost($host) 
+	public function __construct()
 	{
-		$this->host = $host;
+		$server = new swoole_server("127.0.0.1", 9501);
+		$server->on('connect', $this->onConnect($server, $fd));
+		$server->on('receive', $this->onReceive($server, $fd, $from_id, $data));
+		$server->on('close', $this->onClose($server, $fd));
+
+		//启动服务
+		//一旦服务启动，所有注册函数不可更改，更改后只有重启服务才生效
+		$server->start();
 	}
 
-	public function getHost()
+	public function onConnect($server, $fd)
 	{
-		return $this->host;
+		echo "Client $fd connect.\n";
 	}
 
-	public function setPort($port) 
+	public function onReceive($server, $fd, $from_id, $data)
 	{
-		$this->port = $port;
+		//接收到来自$fd的数据$data
+		$server->send($fd, "Server: ". $data);
 	}
 
-	public function getPort()
+	public function onClose($server, $fd)
 	{
-		return $this->port;
-	}
-
-	public function setProtocol($protocol) 
-	{
-		$this->protocol = $protocol;
-	}
-
-	public function getProtocol()
-	{
-		return $this->protocol;
+		echo "Client closed";
 	}
 }

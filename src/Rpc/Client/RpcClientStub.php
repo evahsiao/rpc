@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-16 14:28:13
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-16 15:13:35
+ * @Last Modified time: 2019-04-18 13:23:53
  * Desc:客户端存根--存放服务端地址信息，将客户端的请求参数打包成网络消息，再通过网络发送给服务方
  */
 
@@ -34,21 +34,4 @@ class RpcClientStub
 			],
 		];
 	}
-
-	// public function getMethods()
-	// {
-	// 	//请求地址：127.0.0.1:9501/test/search
-	// 	return [
-	// 		'im' => [ //server
-	// 			'test' => [ //alias
-	// 				'space' => 'src\Rpc\TestUnit\ServerTest', //class
-	// 				'functions' => [
-	// 					'list',
-	// 					'detail'
-	// 				],
-	// 			],
-	// 		],
-	// 		'mall' => [],
-	// 	];
-	// }
 }
