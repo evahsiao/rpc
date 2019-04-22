@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-22 11:13:55
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 15:42:36
+ * @Last Modified time: 2019-04-22 16:08:53
  */
 
 namespace src\Bundles;
@@ -76,6 +76,7 @@ class ServiceBundle
 					}
 					$client->send(json_encode($data['data']));
 					$res = $client->recv();
+					$client->close();
 					return $res;
 				} else {
 					//服务不存在
