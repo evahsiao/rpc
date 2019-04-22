@@ -4,11 +4,11 @@
  * @Author: xml
  * @Date:   2019-04-18 16:48:56
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-18 18:02:13
+ * @Last Modified time: 2019-04-22 11:15:34
  * Desc:服务器
  */
 
-namespace src\Rpc\Service;
+namespace src\Service;
 
 use Swoole;
 use src\Rpc\Service\ServiceContainer;

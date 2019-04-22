@@ -4,11 +4,11 @@
  * @Author: xml
  * @Date:   2019-03-30 17:30:10
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-09 13:55:50
+ * @Last Modified time: 2019-04-22 11:16:04
  * Desc: 服务端提供的具体服务实现
  */
 
-namespace src\Rpc\TestUnit;
+namespace src\TestUnit;
 
 public class ServerTest{
 

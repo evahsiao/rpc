@@ -4,10 +4,10 @@
  * @Author: xml
  * @Date:   2019-04-18 14:34:28
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-18 14:35:32
+ * @Last Modified time: 2019-04-22 11:15:11
  * Desc:服务器
  */
-namespace src\Rpc\Client;
+namespace src\Client;
 
 class Server
 {

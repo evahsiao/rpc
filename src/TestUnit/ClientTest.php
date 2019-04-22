@@ -4,15 +4,15 @@
  * @Author: xml
  * @Date:   2019-04-09 13:52:12
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-18 18:02:39
+ * @Last Modified time: 2019-04-22 11:15:59
  * Desc: 客户端发送请求前的方法
  */
 
-namespace src\Rpc\TestUnit;
+namespace src\TestUnit;
 
-use src\Rpc\Client\RpcClient;
-use src\Rpc\Client\Server;
-use src\Rpc\Service\ServiceServer;
+use src\Client\RpcClient;
+use src\Client\Server;
+use src\Service\ServiceServer;
 
 public class ClientTest
 {

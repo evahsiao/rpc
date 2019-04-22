@@ -4,14 +4,14 @@
  * @Author: xml
  * @Date:   2019-03-30 16:03:31
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-18 16:55:00
+ * @Last Modified time: 2019-04-22 11:15:01
  * Desc: RPC同步客户端
  */
 
-namespace src\Rpc\Client;
+namespace src\Client;
 
 use Swoole;
-use src\Rpc\Client\Server;
+use src\Client\Server;
 
 class RpcClient
 {

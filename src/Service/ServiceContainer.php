@@ -4,11 +4,11 @@
  * @Author: xml
  * @Date:   2019-04-18 17:20:48
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 10:47:39
+ * @Last Modified time: 2019-04-22 11:15:29
  * Desc:服务
  */
 
-namespace src\Rpc\Service;
+namespace src\Service;
 
 class ServiceContainer
 {

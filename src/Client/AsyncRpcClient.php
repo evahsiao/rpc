@@ -4,7 +4,7 @@
  * @Author: xml
  * @Date:   2019-04-09 14:14:26
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-18 14:50:10
+ * @Last Modified time: 2019-04-22 11:14:37
  * Desc: 异步客户端
  * Note: 异步客户端不可使用单例模式进行初始化
  * 因为每个客户端连接服务端后发送数据都是通过在连接时发送数据，数据处理返回结果注册的都是同一个receive函数
@@ -12,7 +12,7 @@
  * 使用多个连接而非一个连接中来统一处理
  */
 
-namespace src\Rpc\Client;
+namespace src\Client;
 
 use Swoole;
 

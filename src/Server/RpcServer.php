@@ -4,11 +4,11 @@
  * @Author: xml
  * @Date:   2019-03-30 15:58:06
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-22 10:53:39
+ * @Last Modified time: 2019-04-22 11:15:24
  * Desc: rpc服务器
  */
 
-namespace src\Rpc\Server;
+namespace src\Server;
 
 class RpcServer
 {

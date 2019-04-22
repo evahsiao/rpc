@@ -4,11 +4,11 @@
  * @Author: xml
  * @Date:   2019-03-30 17:38:20
  * @Last Modified by:   xml
- * @Last Modified time: 2019-04-09 13:56:27
+ * @Last Modified time: 2019-04-22 11:15:17
  * Desc:服务列表
  */
 
-namespace src\Rpc\RequestResponse;
+namespace src\RequestResponse;
 
 class ServerList
 {
